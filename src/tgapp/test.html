@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+<head>
+    <script type="text/javascript" src="http://cdnfile.op110.com.cn/controls/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body style="height:5000px;">
+ 
+<script>
+    function writeOpenID(){
+      var openID = document.getElementById("openID").value;      
+      var postData = "openid="+openID;
+      var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/sys/main?xwl=345N8Z9NYQWU", true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
+          var text = xhr.responseText;
+          console.log(text);
+          document.getElementById("result").innerHTML = text; 
+        };
+        xhr.send(postData);
+    }
+
+</script>
+
+<div>
+  OpenID: <input id="openID" value="1494EBD0543CCDC578B326CD4F84351E9882EB28FD56828B1B4801E9BA3AC9BC" style="width:600px;">  
+  <br>
+  <button onclick="writeOpenID()">写入Cookie</button>
+  <br>
+  <span id="result"></span>
+</div>
+ 
+</body>
+</html>
